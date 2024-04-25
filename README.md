@@ -44,8 +44,28 @@ function mystery(n) {
     }
 }
 ```
-The function makes three recursive calls to itself with the argument being $n/3$, $3T(n/3)$ the front "3" that is multiplying the $T(n/3)$ is there to account for the three recursive calls. The function also does a triple nested loop. So, the outer and iner loops each run $n^2$ times and then the middle loop runs $n$ times.
+The function makes three recursive calls to itself with the argument being $n/3$, $3T(n/3)$ the front "3" that is multiplying the $T(n/3)$ is there to account for the three recursive calls. The function also does a triple nested loop.
+So, the outer and iner loops each run $n^2$ times and then the middle loop runs $n$ times.
 that gives you $n^2 * n * n^2 = n^5$. Together you get the relation $T(n)=3T(n/3) + n^5$. This is my recurrance realtion. Because the nested loops dominate the time complexity the tight bound for Big $O$ is $\theta (n^5)$
+
+I used the recurrsion tree method to solve the reccurance relation:
+```
+
+The function makes 3 recursive calls to itself with the argument being n/3
+
+0: Level 0 = n^5 // This is the total work on each level
+1: Level 1 = 3*(n/3)^5 // Each level is multiplied by 3 becsaue of the three recursive calls
+2: Level 2 = 9*(n/9)^5 // Multiplied by 3 again
+3: Level 3 = 27*(n/27)^5 //and again.
+
+This gives us a tree height of log_3(n) because of the dividing of n by 3 at each level.
+so the total cost of work for each level = n^5 * log_3(n).
+Then using the change of base formula (log_b(a) = log_c(a) / log_c(b)) you get n^5 * (log(n) / log(3)) .
+log(3) is a constant so is ignored. n^5 grows faster then log(n) so the tight BIG O bound is equal to O(n^5)
+
+
+```
+
 
 
 Add your answer to this markdown file. [This
