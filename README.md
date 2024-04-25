@@ -65,7 +65,9 @@ log(3) is a constant so is ignored. n^5 grows faster then log(n) so the tight BI
 
 
 ```
-
+Here are 2 videos I used along with your videos to help me try to figure this out:
+https://youtu.be/0D2-sYen23E?si=gudlbpvaCpEZBIR2
+https://youtu.be/FFm-zaFW_X4?si=9ghuZ_JOrojQ2Nf-
 
 
 Add your answer to this markdown file. [This
