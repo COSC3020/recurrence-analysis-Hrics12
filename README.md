@@ -15,14 +15,14 @@ function mystery(n) {
         return;
     else {
         // Recursive call to function with n divided by 3
-        // This contributes to the 3T(n/3) part of the recurrence relation
+        
         mystery(n / 3);
 
         // Initialize count variable
         var count = 0;
 
         // Another recursive call to mystery function with n divided by 3
-        // This also contributes to the 3T(n/3) part of the recurrence relation
+        
         mystery(n / 3);
 
         // Nested loop structure
@@ -31,7 +31,7 @@ function mystery(n) {
             // The middle loop runs n times
             for (var j = 0; j < n; j++) {
                 // The inner loop runs n^2 times
-                // The total time complexity of these nested loops is O(n^5), which contributes to the n^5 part of the recurrence relation
+                
                 for (var k = 0; k < n * n; k++) {
                     
                     count = count + 1;
@@ -39,24 +39,13 @@ function mystery(n) {
             }
         }
 
-        // Another recursive call to mystery function with n divided by 3
-        // This also contributes to the 3T(n/3) part of the recurrence relation
+        
         mystery(n / 3);
     }
 }
 ```
-
-The function makes 3 recursive calls to itself, and then has a triple nested loop that runs $n^5$ times. The time complexity tree is
-```javascrirpt
-Tree Levels:
-Level 0:                     n^5
-Level 1:          3*(n/3)^5
-Level 2:     9*(n/9)^5
-Level 3: 27*(n/27)^5
-```
-So, the height of the tree is $log_3(n)$ because each level $n$ is being divided by 3. Each level cost $n^5$. The time complexity is $(n^5)*log_3(n)$ or $O(n^5 * log(n))$
-
-
+The function makes three recursive calls to itself with the argument being $n/3$, $3T(n/3)$ the front "3" that is multiplying the $T(n/3)$ is there to account for the three recursive calls. The function also does a triple nested loop. So, the outer and iner loops each run $n^2$ times and then the middle loop runs $n$ times.
+that gives you $n^2 * n * n^2 = n^5$. Together you get the relation $T(n)=3T(n/3) + n^5$. This is my recurrance realtion. Because the nested loops dominate the time complexity the tight bound for Big $O$ is $\theta (n^5)$
 
 
 Add your answer to this markdown file. [This
