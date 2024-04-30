@@ -53,17 +53,98 @@ I used the recurrsion tree method to solve the reccurance relation:
 
 The function makes 3 recursive calls to itself with the argument being n/3
 
-0: Level 0 = n^5 // This is the total work on each level
-1: Level 1 = 3*(n/3)^5 // Each level is multiplied by 3 becsaue of the three recursive calls
-2: Level 2 = 9*(n/9)^5 // Multiplied by 3 again
-3: Level 3 = 27*(n/27)^5 //and again.
+Level 0: n^5
+|
+|--- Level 1: n^5 / 3^5
+|    |
+|    |--- Level 2: n^5 / 3^10
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |
+|    |--- Level 2: n^5 / 3^10
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |
+|    |--- Level 2: n^5 / 3^10
+|         |
+|         |--- Level 3: n^5 / 3^15
+|         |
+|         |--- Level 3: n^5 / 3^15
+|         |
+|         |--- Level 3: n^5 / 3^15
+|
+|--- Level 1: n^5 / 3^5
+|    |
+|    |--- Level 2: n^5 / 3^10
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |
+|    |--- Level 2: n^5 / 3^10
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |    |
+|    |    |--- Level 3: n^5 / 3^15
+|    |
+|    |--- Level 2: n^5 / 3^10
+|         |
+|         |--- Level 3: n^5 / 3^15
+|         |
+|         |--- Level 3: n^5 / 3^15
+|         |
+|         |--- Level 3: n^5 / 3^15
+|
+|--- Level 1: n^5 / 3^5
+     |
+     |--- Level 2: n^5 / 3^10
+     |    |
+     |    |--- Level 3: n^5 / 3^15
+     |    |
+     |    |--- Level 3: n^5 / 3^15
+     |    |
+     |    |--- Level 3: n^5 / 3^15
+     |
+     |--- Level 2: n^5 / 3^10
+     |    |
+     |    |--- Level 3: n^5 / 3^15
+     |    |
+     |    |--- Level 3: n^5 / 3^15
+     |    |
+     |    |--- Level 3: n^5 / 3^15
+     |
+     |--- Level 2: n^5 / 3^10
+          |
+          |--- Level 3: n^5 / 3^15
+          |
+          |--- Level 3: n^5 / 3^15
+          |
+          |--- Level 3: n^5 / 3^15
+
+Level 0: n^5 Level 1: 3 * (n/3)^5 = n^5 / 3^5
+Level 2: 9 * (n/9)^5 = n^5 / 3^10
+Level 3: 27 * (n/27)^5 = n^5 / 3^15
+
 
 This gives us a tree height of log_3(n) because of the dividing of n by 3 at each level.
 so the total cost of work for each level = n^5 * log_3(n).
 Then using the change of base formula (log_b(a) = log_c(a) / log_c(b)) you get n^5 * (log(n) / log(3)) .
 log(3) is a constant so is ignored. n^5 grows faster then log(n) so the tight BIG O bound is equal to O(n^5)
 
-
+This whast I used for the tree
+https://tree.nathanfriend.io/?s=(%27options!(%27fancy*~fullPath!false~trailingSlash*~rootDot*)~-(%27-%27%27)~version!%271%27)*!true-source!%01-*
 ```
 Here are 2 videos I used along with your videos to help me try to figure this out:
 https://youtu.be/0D2-sYen23E?si=gudlbpvaCpEZBIR2
