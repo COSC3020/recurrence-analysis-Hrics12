@@ -137,6 +137,12 @@ Level 0: n^5 Level 1: 3 * (n/3)^5 = n^5 / 3^5
 Level 2: 9 * (n/9)^5 = n^5 / 3^10
 Level 3: 27 * (n/27)^5 = n^5 / 3^15
 
+So calculated in a geometric series? (a * (1-r^n)/ (1-r))
+a=n^5
+r=1/3^5
+n is the number of levels in the tree.
+n^5 * (1 - (1/3^5)^(L+1)) / (1 - 1/3^5)
+
 
 This gives us a tree height of log_3(n) because of the dividing of n by 3 at each level.
 so the total cost of work for each level = n^5 * log_3(n).
