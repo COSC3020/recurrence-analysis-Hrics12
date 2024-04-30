@@ -140,7 +140,9 @@ Level 3: 27 * (n/27)^5 = n^5 / 3^15
 So calculated in a geometric series? (a * (1-r^n)/ (1-r))
 a=n^5
 r=1/3^5
-n is the number of levels in the tree.
+L is the number of levels in the tree.
+n = L+1 because starting from level 0 
+
 n^5 * (1 - (1/3^5)^(L+1)) / (1 - 1/3^5)
 
 
